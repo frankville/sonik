@@ -4,5 +4,6 @@
     <string name="app_name">Test</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-
+	<string name="editFieldHint">Texto tipo placeholder</string>
+	<string name="sendBtText">Enviar</string>
 </resources>
