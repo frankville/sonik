@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Prueba</string>
+    <string name="action_settings">Configuraciones</string>
+    <string name="hello_world">Hola Mundo!</string>
+    <string name="editFieldHint">Texto tipo placeholder</string>
+    <string name="sendBtText">Enviar</string>
+    <string name="title_activity_second">SegundaActividad</string>
+	<string name="action_search" >Buscar</string>
+	
+</resources>

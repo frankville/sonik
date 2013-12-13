@@ -1,24 +1,25 @@
 package distro.sonik.test;
 
-import com.distro.test.R;
-
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class SecondActivity extends Activity {
+import com.distro.test.R;
+
+public class SecondActivity extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.second_activity);
 		// Show the Up button in the action bar.
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		setupActionBar();
 		Intent intent = getIntent();
 		String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);

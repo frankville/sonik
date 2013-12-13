@@ -1,0 +1,69 @@
+notas sobre activities lifecycle:
+onCreate,onStart,OnResume: se llaman en ese orden cuando se inicia la aplic.
+onStart se llama tambien cada vez que la actividad se hace visible.
+
+onPause: cuando una activ esta visible pero solo parcialmente (ej: cuando aparece un dialogo
+aceptar/cancelar pero la activ se ve de fondo). En este metodo hay que liberar recursos que
+no impliquen mucho trabajo de procesamiento (evitar escribir a disco, en base de datos, etc)
+un ejemplo puede ser cuando se pausan animaciones o videos.
+
+onStop: se implementa cuando la aplicacion se va a otra actividad. La actividad
+no se destruye y el sistema guarda automaticamente el estado de las Views para
+cuando la actividad sea retomada. La actividad queda
+totalmente invisible. Aca se aprovecha para escribir en disco o en base de datos o 
+hacer cualquier tarea que sea CPU-intensive. En el caso extremo el sistema puede matar el
+proceso de la aplicacion y por ende el metodo onDestroy no se llama, por eso es importante
+implementar el metodo onStop y liberar todo recurso que se este ocupando en esa actividad
+para no dejar sin memoria al dispositivo. onPause se llama antes de onStop.
+
+onRestart: se llama despues de un onStop. Tambien se llama onStart cuando se llama 
+a onRestart. Como siempre que usamos onStop estamos liberando recursos, en una llamada 
+onRestart deberiamos volver a implementarlos. Debido a esto, es mejor usar onStart para 
+inicializar los recursos que la actividad va a usar, ya que es el metodo que se llama 
+siempre que la actividad vuelva a estar activa(Resumed). un ejemplo seria el uso de 
+la camara. onStart se usa como contraparte de onStop
+
+			onStart >>>>>>>> inicializa recursos
+			onStop >>>>>>>>> los libera
+			
+onDestroy: se usa solamente cuando se tienen que destruir threads o liberar recursos.
+Antes de onDestroy se llama a onStop, asi que onDestroy solo queda para casos aislados.
+
+
+recrear una actividad:
+	hay que implementar el metodo onSaveInstanceState en la actividad. El metodo recibe 
+	un objeto de tipo Bundle que funciona como un hashmap. Hay que pasarle palabras claves
+	(guardadas tipo static final string en la actividad) y para cada palabra clave un valor
+	Por ejemplo si queremos guardar la posicion de un scroll :
+	public static final String POSICION_LISTA = 0;
+	.
+	.
+	.
+	@Override
+	public void onSaveInstanceState(Bundle sis){
+		sis.put(POSICION_LISTA, 54 );//ese 54 seria el valor que queremos guardar
+		.
+		.
+		.
+		super.onSaveInstanceState(sis);//este metodo siempre se llama porque hace posible
+										//guardar el Bundle
+	}
+
+Cuando necesitamos recuperar una actividad tenemos que recargar la info guardada usando
+el Bundle que teniamos para guardar los valores.
+Podemos usar el metodo onStart y chequear si el Bundle que recibimos es o no null, en cuyo
+caso podemos recargar las View con los valores guardados.
+Pero es mas eficiente recargar el estado de las Views si lo implementamos con el metodo
+ onRestoreInstanceState, ya que el sistema llama a este metodo sólo si existe algun
+ objeto Bundle que se necesite, sino hay entonces no hace falta chequear el objeto Bundle
+ que se le pasa a la actividad.}
+ 
+ public void onRestoreInstanceState(Bundle sis){
+ 	super.onRestoreInstanceState(sis);//primero se llama a la super clase
+ 	listView.setPosition(sis.getInt(POSICION_LISTA);
+ }
+ 
+
+
+
+

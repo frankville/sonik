@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+       <style name="CustomActionBarTheme" 
+        parent="@style/Theme.AppCompat">
+        <!--  the following line must exist if we need appCompat -->
+       	<item name="actionBarStyle">@style/MyActionBar</item>
+       	<item name="actionBarTabTextStyle">@style/ActionBarTabText</item>
+       	<item name="actionMenuTextColor">@color/actionbar_text</item>
+       	<item name="windowActionBarOverlay">true</item>
+    </style>
+	<style name="MyActionBar" 
+	    parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse" >
+	    <item name="android:background">@drawable/actionbarbackgroundorange</item>
+	    <!-- for app compatibility -->
+	    <item name="background">@drawable/actionbarbackgroundorange</item>
+	    <item name="titleTextStyle">@style/ActionBarTitleText</item>
+	</style>
+	<style name="ActionBarTitleText"
+	    parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+	    <item name="android:textColor">@color/actionbar_text</item>
+	</style>
+	<style name="ActionBarTabText" 
+	    parent="@style/Widget.AppCompat.ActionBar.TabText">
+	    	<item name="android:textColor">@color/actionbar_text</item>
+	</style>
+	<color name="actionbar_text">@color/DarkGray</color>
+</resources>
