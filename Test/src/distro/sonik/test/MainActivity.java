@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.distro.test.R;
-import com.distro.test.SecondActivity;
 
 public class MainActivity extends Activity {
 	public static final String EXTRA_MESSAGE = "distro.sonik.MESSAGE";
