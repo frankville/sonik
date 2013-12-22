@@ -8,7 +8,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="?attr/actionBarSize"
     android:orientation = "vertical"
-    tools:context=".Fragmento1" >
+    tools:context=".Fragmento1"
+     >
 
     <TextView android:id="@+id/textViewFrag1"
         android:text="@string/frag1label"

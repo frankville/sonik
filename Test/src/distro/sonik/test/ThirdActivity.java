@@ -22,12 +22,13 @@ public class ThirdActivity extends ActionBarActivity implements OnShowFragment2T
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		System.out.println("antes del setContent");
 		setContentView(R.layout.third_activity);
 		// Show the Up button in the action bar.
-		
+		System.out.println("adespues del setContent");
 		setupActionBar();
 		 addFragmentsToActivity();
-		
+		System.out.println("valor del savedBundle "+savedInstanceState);
 	
 	}
 	
@@ -36,6 +37,7 @@ public class ThirdActivity extends ActionBarActivity implements OnShowFragment2T
 			Fragmento1 firstFrag = new Fragmento1();
 			
 			Bundle args = getIntent().getExtras();
+			System.out.println("valor del args al pasarle al Frag 1 "+args);
 			firstFrag.setArguments(args);
 			getSupportFragmentManager().beginTransaction().add(R.id.fragsContainer, firstFrag).commit();
 		}

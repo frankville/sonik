@@ -23,13 +23,15 @@ OnShowFragment2TappedListener frag2Interface;
 	@Override
 	public void onCreate(Bundle savedState){
 		super.onCreate(savedState);
+		/*
 		Bundle args = getArguments();
-		System.out.println("valor args frag 1 "+args);
+	//	System.out.println("valor args frag 1 "+args);
 		String message = args.getString(MESSAGE);
-		System.out.println("Mensaje desde la 3ra actividad:"+message);
+		//System.out.println("Mensaje desde la 3ra actividad:"+message);
 		TextView txtvw = (TextView)getActivity().findViewById(R.id.frag1MsgView);
 
 		txtvw.setText(message);
+		*/
 	}
 	
 	public static String MESSAGE="distro.sonik.test.MESSAGE";
@@ -40,16 +42,16 @@ OnShowFragment2TappedListener frag2Interface;
 	
 		
 	}
-	/*
+
 	@Override
 	public void onStart(){
 		super.onStart();
 		Bundle args = getActivity().getIntent().getExtras();
-		
+		System.out.println("valor args frag 1 onStart "+args);
 		
 		
 	}
-	*/
+
 	@Override
 	public void onAttach(Activity act){
 		super.onAttach(act);
