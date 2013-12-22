@@ -69,7 +69,7 @@ public class SecondActivity extends ActionBarActivity {
 		Intent intent = new Intent(this, ThirdActivity.class);
 		EditText edTxt = (EditText)findViewById(R.id.editText2);
 		String msg = edTxt.getText().toString();
-		intent.putExtra(MESSAGE, msg);
+		intent.putExtra(ThirdActivity.MESSAGE, msg);
 		startActivity(intent);
 		
 	}

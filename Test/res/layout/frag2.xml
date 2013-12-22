@@ -10,15 +10,10 @@
     android:orientation = "vertical"
     tools:context=".Fragmento2">
 
-    <TextView android:id="@+id/frag2textView"
+    <TextView android:id="@+id/frag2txtView"
         android:text="@string/frag2label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
-    <EditText android:id="@+id/frag2EditText"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:hint="@string/frag2hintText"
-        />
+
 </LinearLayout>

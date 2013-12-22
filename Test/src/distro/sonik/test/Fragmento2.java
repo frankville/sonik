@@ -17,17 +17,20 @@ public class Fragmento2 extends Fragment {
 		return inflater.inflate(R.layout.frag2,container,false);
 	}
 	
-	
+	/*
 	@Override
 	public void onStart(){
 		super.onStart();
-	
+		Bundle args = getArguments();
+		String msg = args.getString(MESSAGE);
+		TextView txtvw = (TextView)getActivity().findViewById(R.id.frag2txtView);
+		txtvw.setText("Mensaje del fragmento 1 "+msg);
 	}
+	*/
+	public void setMessageForFragment(String s){
 	
-	public void setMessageForFragment(String msg){
-		
-		TextView txtvw = (TextView)getActivity().findViewById(R.id.frag2textView);
-		txtvw.setText(msg);
+		TextView txtvw = (TextView)getActivity().findViewById(R.id.frag2txtView);
+		txtvw.setText(s);
 	}
 	
 }

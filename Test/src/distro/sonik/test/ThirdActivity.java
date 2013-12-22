@@ -11,13 +11,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.distro.test.R;
 
 import distro.sonik.test.Fragmento1.OnShowFragment2TappedListener;
 
 public class ThirdActivity extends ActionBarActivity implements OnShowFragment2TappedListener {
-
+	public static String MESSAGE = "distro.sonik.test.MESSAGE";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -25,36 +26,27 @@ public class ThirdActivity extends ActionBarActivity implements OnShowFragment2T
 		// Show the Up button in the action bar.
 		
 		setupActionBar();
-		addFragmentsToActivity(savedInstanceState);
-		Intent intent = getIntent();
-		String message = intent.getStringExtra(SecondActivity.MESSAGE);
+		 addFragmentsToActivity();
 		
 	
 	}
 	
-	private void addFragmentsToActivity(Bundle savedInstanceState){
-		if(findViewById(R.id.fragsContainer) != null){
-			if(savedInstanceState != null){
-				return;
-			}
+	private void addFragmentsToActivity(){
 			
 			Fragmento1 firstFrag = new Fragmento1();
 			
+			Bundle args = getIntent().getExtras();
+			firstFrag.setArguments(args);
 			getSupportFragmentManager().beginTransaction().add(R.id.fragsContainer, firstFrag).commit();
 		}
-	}
 	
-	private void replaceFragment(){
+	
+	 @Override
+	 public void onStart(){
+		 super.onStart();
 		
-		Fragmento2 otroFrag = new Fragmento2();
-		
-		FragmentTransaction transact = getSupportFragmentManager().beginTransaction();
-		
-		transact.replace(R.id.fragsContainer, otroFrag);
-		transact.addToBackStack(null);
-		transact.commit();
-		
-	}
+	 }
+	
 
 	/**
 	 * Set up the {@link android.app.ActionBar}, if the API is available.
@@ -92,13 +84,15 @@ public class ThirdActivity extends ActionBarActivity implements OnShowFragment2T
 
 	@Override
 	public void showFragmento2(View v) {
-		Fragmento2 frag2 = (Fragmento2)getSupportFragmentManager().findFragmentById(R.id.fragmento1);
+		Fragmento2 frag2 = (Fragmento2)getSupportFragmentManager().findFragmentById(R.id.fragmento2);
 		TextView txt = (TextView)findViewById(R.id.frag1MsgView);
 		String msg = txt.getText().toString();
 		if(frag2 != null){
 			//el frag esta visible y solo hay que actualizar su contenido
-			frag2.setMessageForFragment(msg);
-			System.out.println("Entra en el if");
+			String s = "El fragmento 2 ya esta visible. Estas en una pantalla large madafakah!!";
+			
+			frag2.setMessageForFragment(s+msg);
+
 		}else{
 			Fragmento2 nvoFrag2 = new Fragmento2();
 			FragmentTransaction transact = getSupportFragmentManager().beginTransaction();
