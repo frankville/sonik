@@ -8,12 +8,14 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.distro.test.R;
 
 public class SecondActivity extends ActionBarActivity {
-
+	public static String MESSAGE = "distro.sonik.test.MESSAGE";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -61,6 +63,15 @@ public class SecondActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void startThirdActivity(View v){
+		Intent intent = new Intent(this, ThirdActivity.class);
+		EditText edTxt = (EditText)findViewById(R.id.editText2);
+		String msg = edTxt.getText().toString();
+		intent.putExtra(MESSAGE, msg);
+		startActivity(intent);
+		
 	}
 
 }

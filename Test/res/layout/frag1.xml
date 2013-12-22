@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -6,30 +7,22 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="?attr/actionBarSize"
-    tools:context=".SecondActivity" >
+    android:orientation = "vertical"
+    tools:context=".Fragmento1" >
 
-    <TextView android:id="@+id/textViewSecAct"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-     />
-    <TextView android:id="@+id/act2MsgView"
+    <TextView android:id="@+id/textViewFrag1"
+        android:text="@string/frag1label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
     />
-    
-    
-    <Button android:id="@+id/act2Bt"
+    <TextView android:id="@+id/frag1MsgView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+    />
+    <Button android:id="@+id/frag1Bt"
+        android:text="@string/frag1BtLab"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="@string/labBt2ndAct"
-        android:onClick="startThirdActivity"
-        />
-    <EditText android:id="@+id/editText2"
-        android:hint="@string/hint2EditText"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        
-        />
-
+        android:onClick="showFragmento2"
+    />
 </LinearLayout>

@@ -7,6 +7,14 @@
     <string name="editFieldHint">placeholder text</string>
     <string name="sendBtText">Send</string>
     <string name="title_activity_second">SecondActivity</string>
-	<string name="action_search" >Search</string>
-	
+    <string name="action_search">Search</string>
+    <string name="title_activity_third">ThirdActivity</string>
+    <string name="labBt2ndAct">3ra Actividad</string>
+	<string name="hint2EditText">Mensaje para la 3ra actividad</string>
+	<string name="frag1label">Estas en la 3ra actividad en el fragmento 1</string>
+	<string name="frag1BtLab">Ir a Frag 2</string>
+	<string name="frag1hint">mandar mensaje al frag 2</string>
+	<string name="frag2label">Estas en la 3ra Actividad en el fragmento 2</string>
+	<string name="frag2hintText">mandar mensaje al frag 1</string>
+	<string name="frag2BtLab">Ir a Frag 1</string>
 </resources>
