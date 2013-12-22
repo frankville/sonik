@@ -26,9 +26,7 @@ OnShowFragment2TappedListener frag2Interface;
 		/*
 		Bundle args = getArguments();
 	//	System.out.println("valor args frag 1 "+args);
-		String message = args.getString(MESSAGE);
-		//System.out.println("Mensaje desde la 3ra actividad:"+message);
-		TextView txtvw = (TextView)getActivity().findViewById(R.id.frag1MsgView);
+		
 
 		txtvw.setText(message);
 		*/
@@ -47,8 +45,10 @@ OnShowFragment2TappedListener frag2Interface;
 	public void onStart(){
 		super.onStart();
 		Bundle args = getActivity().getIntent().getExtras();
-		System.out.println("valor args frag 1 onStart "+args);
-		
+		String message = args.getString(MESSAGE);
+		//System.out.println("Mensaje desde la 3ra actividad:"+message);
+		TextView txtvw = (TextView)getActivity().findViewById(R.id.frag1MsgView);
+		txtvw.setText(message);
 		
 	}
 

@@ -22,13 +22,18 @@ public class ThirdActivity extends ActionBarActivity implements OnShowFragment2T
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		System.out.println("antes del setContent");
+
 		setContentView(R.layout.third_activity);
 		// Show the Up button in the action bar.
-		System.out.println("adespues del setContent");
 		setupActionBar();
-		 addFragmentsToActivity();
-		System.out.println("valor del savedBundle "+savedInstanceState);
+		if(findViewById(R.id.fragsContainer) != null ){ 
+			/* esto es mas importante que la merdd! si tenes dos fragment containers
+				para pantallas grandes y chicas entonces aca se decide si se cargan los
+				fragmentos a mano (como el metodo addFragmentsToActivity() ) para pantallas chicas
+				o si los fragmentos se cargan automaticamente (pantallas grandes como la tab)
+			*/
+			 addFragmentsToActivity();
+		}
 	
 	}
 	
@@ -37,7 +42,6 @@ public class ThirdActivity extends ActionBarActivity implements OnShowFragment2T
 			Fragmento1 firstFrag = new Fragmento1();
 			
 			Bundle args = getIntent().getExtras();
-			System.out.println("valor del args al pasarle al Frag 1 "+args);
 			firstFrag.setArguments(args);
 			getSupportFragmentManager().beginTransaction().add(R.id.fragsContainer, firstFrag).commit();
 		}
